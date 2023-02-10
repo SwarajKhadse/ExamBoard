@@ -4,37 +4,49 @@ import QuestionPaper from "./QuestionPaper";
 const Content = () => {
   // console.log(data)
   let [id,setId]=useState(1)
-  let [checked,setChecked]=useState(0)
-  let[inFinal,setInFinal]=useState(1)
-
-  let[clicked,setClicked]=useState(0)
-  // let [elemArray , setElemArray]=useState(0)
-  const arr=[0,0,0,0,0,0,0,0,0,0];
+  let [countAns,setCountAns]=useState(0)
+ 
+ 
   
+  // let [elemArray , setElemArray]=useState(0)
+  const arr=[];
+  var count=0;
+//  console.log(arr)
   
   const [drive, setDrive] =useState(""); // the lifted state
-
+  
   const selectedOption = (index) => { 
     setDrive(index);
-    
+    console.log(drive)
   };
-  const indexFinal = (jam) => { 
-      setInFinal(jam);
-    
-  };
+  
+  let[clicked,setClicked]=useState(0)
 
+  const getId=(index)=>{
+    setClicked(index)
+  }
 
 
   function handelIncr(){
-    if(drive){
-      setClicked(1)
-      setChecked(1)
-      if(checked==1)
-      {
 
-        arr[index-1]=drive;
-        alert(arr[index-1])
+    for(var i=0;i<10;i++)
+    {
+      if(arr[i]!=0)
+      {
+        count++;
       }
+    }
+    setCountAns(count)
+
+
+    if(drive){
+      
+        arr[clicked-1]=drive;
+        console.log(":fksjdh")
+        console.log(arr[clicked-1])
+        console.log(arr)
+
+
     }
 
     if(id<10)
@@ -80,10 +92,8 @@ const Content = () => {
                     // setElemArray(e.id)
                     return(
                       <>
-                     
-
-                      <QuestionPaper e={e} selectedOption={selectedOption}  indexFinal={indexFinal} />
-                    
+                      
+                      <QuestionPaper e={e} selectedOption={selectedOption}  getId={getId}  />
                       </>
                     )
                   }
@@ -132,8 +142,13 @@ const Content = () => {
 
           {
             data.map((e)=>{
+             
+
+             
               return (
-                <button className="queNumberId" onClick={()=>{
+
+                <button className="queNumberId" 
+                 onClick={()=>{
                   setId(e.id)
                 }}>{e.id}</button>
               )
@@ -148,7 +163,7 @@ const Content = () => {
           <div className="queSubPallete">
                 <h5 className="quesNo ms-2 pt-1">Legend (Click To View )</h5>
           </div>
-          <button className="legendData">4 Answer</button>
+          <button className="legendData">{countAns} Answer</button>
           <button className="legendData">2 No Answer</button>
           <button className="legendData">1 Review + Ans</button>
           <button className="legendData">1 Review + Ans</button>

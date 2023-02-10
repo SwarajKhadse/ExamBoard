@@ -1,14 +1,14 @@
 import React,{useState} from 'react'
 
-const QuestionPaper = ({e ,selectedOption,indexFinal}) => {
-  
+const QuestionPaper = ({e ,selectedOption,getId}) => {
+ 
   const [ans, setAns] = useState();
-  const [index, setIndex] = useState();
+  const [generateId,setGenerateId]=useState(0)
   
 selectedOption(ans)
 
-setIndex(e.id)
-indexFinal(index)
+getId(generateId)
+
   return (
     <>
     <div className="mainDiv ms-3">
@@ -51,9 +51,10 @@ indexFinal(index)
                         type="radio"
                         name="option"
                         id="option0"
-                        value="opt1"
+                        value={e.id}
                         onChange={e=>{
-                          setAns(e.target.value)
+                          setAns("opt1"),
+                          setGenerateId(e.target.value)
                         }}
                       />
                       {e.option1}
@@ -66,9 +67,10 @@ indexFinal(index)
                         type="radio"
                         name="option"
                         id="option1"
-                        value="opt2"
+                        value={e.id}
                         onChange={e=>{
-                          setAns(e.target.value)
+                          setAns("opt2"),
+                          setGenerateId(e.target.value)
                         }}
                       />
                       {e.option2}
@@ -80,9 +82,10 @@ indexFinal(index)
                         type="radio"
                         name="option"
                         id="option2"
-                        value="opt3"
+                        value={e.id}
                         onChange={e=>{
-                          setAns(e.target.value)
+                          setAns("opt3"),
+                          setGenerateId(e.target.value)
                         }}
                       />
                       {e.option3}
@@ -95,9 +98,10 @@ indexFinal(index)
                         type="radio"
                         name="option"
                         id="option3"
-                        value="opt4"
+                        value={e.id}
                         onChange={e=>{
-                          setAns(e.target.value)
+                          setAns("opt4"),
+                          setGenerateId(e.target.value)
                         }}
                       />
                       {e.option4}
