@@ -1,84 +1,190 @@
-import React,{useState,useRef} from "react";
+import React,{useState,useRef,useEffect} from "react";
 import data from './data.json'
 import QuestionPaper from "./QuestionPaper";
+
+const getLocalItmes = (low,high) => {
+  let list=[] ;
+  var temp
+  for(var i=low;i<=high;i++)
+  {
+     temp = (localStorage.getItem(i));
+    if(temp)
+    {
+
+      list[i-1]=temp
+    }
+    else{
+      list[i-1]=0;
+    }
+  }
+//  console.log(list)
+  if (list) {
+    var total=[]
+    console.log("asjdal")
+    for(var i=low;i<=high;i++)
+    {
+      var zp= JSON.parse(localStorage.getItem(i+1));
+      if(zp)
+      {
+        total[i]=zp
+        console.log(zp)
+      }
+      else{
+        zp=0
+        total[i]=zp
+        console.log(zp)
+      }
+    }
+    
+      return total
+    } else {
+      return [];
+  }
+}
+
 const Content = () => {
+
+
+  const [low , setLow]=useState(0)
+  const [high , setHigh]=useState(29)
+
+   
+
+    function physics()
+    {
+      setLow(1)
+      setHigh(10)
+    }
+    function all()
+    {
+      setLow(1)
+      setHigh(30)
+    }
+   
+    function chemistry()
+    {
+      setLow(11)
+      setHigh(20)
+    }
+    
+    function math()
+    {
+      setLow(21)
+      setHigh(30)
+    }
+    
+
   // console.log(data)
   let [id,setId]=useState(1)
-  let [countAns,setCountAns]=useState(0)
+  let [countAns,setCountAns]=useState()
  
  
+  // const arr=new Map()
+   var count=0;
+
+   var [finalAns,setFinalAns]=useState([])
+   
   
-  // let [elemArray , setElemArray]=useState(0)
-  const arr=[];
-  var count=0;
-//  console.log(arr)
-  
-  const [drive, setDrive] =useState(""); // the lifted state
+  const [drive, setDrive] =useState(); // the lifted state
   
   const selectedOption = (index) => { 
-    setDrive(index);
-    console.log(drive)
-  };
-  
-  let[clicked,setClicked]=useState(0)
 
-  const getId=(index)=>{
-    setClicked(index)
+    setDrive(index);
+
+  };
+
+  let[clicked,setClicked]=useState()
+
+  const getId=(sam)=>{
+    
+    setClicked(sam)
+    
   }
+
+  useEffect(()=>{
+    localStorage.setItem(clicked, JSON.stringify(drive))
+  },[drive])
 
 
   function handelIncr(){
 
-    for(var i=0;i<10;i++)
+    for(var i=low-1;i<high;i++)
     {
-      if(arr[i]!=0)
+      if(finalAns[i]!="0")
       {
         count++;
       }
     }
-    setCountAns(count)
+    setCountAns(count+1)
+    console.log("dhsak")
+    console.log(countAns)
 
-
-    if(drive){
-      
-        arr[clicked-1]=drive;
-        console.log(":fksjdh")
-        console.log(arr[clicked-1])
-        console.log(arr)
-
-
+    var disco = getLocalItmes(low,high)
+    for(var i=low-1;i<high;i++)
+    {
+        finalAns[i]=disco[i];
     }
+    console.log("dfsl")
+    console.log(finalAns)
+    console.log("dfsl")
+   
 
-    if(id<10)
+    if(id<=high&&id>=low)
     {
       id++;
       setId(id)
+    }
+    else
+    {
+      id=low;
     }
     
   }
   // console.log("selectedOption"+selectedOption)
   function handelDecr(){
-    if(id>1)
+    for(var i=low-1;i<high;i++)
+    {
+      if(finalAns[i]!=0)
+      {
+        count++;
+      }
+    }
+    setCountAns(count+1)
+    console.log("dhsak")
+    console.log(countAns)
+
+    var disco = getLocalItmes(low,high)
+    for(var i=low-1;i<high;i++)
+    {
+        finalAns[i]=disco[i];
+    }
+    if(id>=low&&id<=high)
     {
       id--;
       setId(id)
     }
     else{
-      setId(1)
+      setId(low)
     }
   }
 
 
-   
+  function clearResponse(){
+    
+    // console.log(finalAns[clicked])
+     localStorage.removeItem(id)
+     
+     
+  }
 
   return (
     <div className="row me-0 mt-3">
       <div className="col-9 contFirst">
         <div>
-          <button className="contButton ms-3">All Section</button>
-          <button className="contButton ms-3">PHYSICS</button>
-          <button className="contButton ms-3">CHEMISTRY</button>
-          <button className="contButton ms-3">MATH</button>
+          <button className="contButton ms-3" onClick={all}>All Section</button>
+          <button className="contButton ms-3" onClick={physics}>PHYSICS</button>
+          <button className="contButton ms-3" onClick={chemistry}>CHEMISTRY</button>
+          <button className="contButton ms-3" onClick={math}>MATH</button>
         </div>
         <hr className="ms-3 " />
         {/* kdsjjsdljfljskdveh gkjgf evhgkdfhkghrvdh */}
@@ -89,22 +195,19 @@ const Content = () => {
                   
                   if(e.id==id)
                   {
-                    // setElemArray(e.id)
+                    if(e.id>=low&&e.id<=high)
                     return(
                       <>
-                      
-                      <QuestionPaper e={e} selectedOption={selectedOption}  getId={getId}  />
+                      <QuestionPaper e={e} selectedOption={selectedOption}  getId={getId}  finalAns={finalAns[e.id]} />
                       </>
                     )
                   }
-                
-                
                 }
             })
           
         }
         <div className="lastButtons mt-3 ms-3">
-          <button className="contButton specialButton ms-3">
+          <button className="contButton specialButton ms-3" onClick={clearResponse}>
             CLEAR RESPONSE
           </button>
           <button className="contButton ms-3">REVIEW</button>
@@ -142,15 +245,13 @@ const Content = () => {
 
           {
             data.map((e)=>{
-             
-
-             
+              if(e.id>=low&&e.id<=high)
               return (
-
-                <button className="queNumberId" 
+                // queNumberId
+                <button className={e.id==id?"currButton":finalAns[e.id-1] && countAns>=0 ? "saveButton" :finalAns[id-1]==0?"queNumberId": "queNumberId"} 
                  onClick={()=>{
                   setId(e.id)
-                }}>{e.id}</button>
+                }}  >{e.id}</button>
               )
             })
           }
@@ -164,7 +265,7 @@ const Content = () => {
                 <h5 className="quesNo ms-2 pt-1">Legend (Click To View )</h5>
           </div>
           <button className="legendData">{countAns} Answer</button>
-          <button className="legendData">2 No Answer</button>
+          <button className="legendData">{high-countAns} No Answer</button>
           <button className="legendData">1 Review + Ans</button>
           <button className="legendData">1 Review + Ans</button>
           <button className="legendData">1 Dump</button>

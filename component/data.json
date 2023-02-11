@@ -111,4 +111,125 @@
         "submitOption":0,
         "clearResponse":0
     }
+    ,{
+        "id":11,
+        "subject":"Chemistry",
+        "questionInstruction":"Within each pair of elements of F & Cl , S & Se, and Li & Na, respectively, the elements that  release more energy upon an electron gain are",
+        "question":"Within each pair of elements of F & Cl , S & Se, and Li & Na, respectively, the elements that  release more energy upon an electron gain are-",
+        "option1":" F, Se and Na",
+        "option2":" F, S and Li",
+        "option3":"Cl, S and Li",
+        "option4":"Cl, Se and Na",
+        "submitOption":0,
+        "clearResponse":0
+    }
+    ,{
+        "id":12,
+        "subject":"Chemistry",
+        "questionInstruction":"The redox reaction among the following is  ",
+        "question":"The redox reaction among the following is ",
+        "option1":"Combination of dinitrogen with dioxygen at 2000 K ",
+        "option2":" Formation of ozone from atmosphereic  oxygen in the presence of sunlight",
+        "option3":" Reaction of H2SO4 with NaOH ",
+        "option4":"Reaction of [Co(H2O)6]Cl3 with AgNO3 ",
+        "submitOption":0,
+        "clearResponse":0
+    }
+    ,{
+        "id":13,
+        "subject":"Chemistry",
+        "questionInstruction":"only solve the que talk later about that",
+        "question":"what is a+b",
+        "option1":"5",
+        "option2":"5",
+        "option3":"5",
+        "option4":"5",
+        "submitOption":0,
+        "clearResponse":0
+    }
+    ,{
+        "id":14,
+        "subject":"Chemistry",
+        "questionInstruction":"only solve the que talk later about that",
+        "question":"what is a+b",
+        "option1":"5",
+        "option2":"5",
+        "option3":"5",
+        "option4":"5",
+        "submitOption":0,
+        "clearResponse":0
+    }
+    ,{
+        "id":15,
+        "subject":"Chemistry",
+        "questionInstruction":"only solve the que talk later about that",
+        "question":"what is a+b",
+        "option1":"5",
+        "option2":"5",
+        "option3":"5",
+        "option4":"5",
+        "submitOption":0,
+        "clearResponse":0
+    }
+    ,{
+        "id":16,
+        "subject":"Chemistry",
+        "questionInstruction":"only solve the que talk later about that",
+        "question":"what is a+b",
+        "option1":"5",
+        "option2":"5",
+        "option3":"5",
+        "option4":"5",
+        "submitOption":0,
+        "clearResponse":0
+    }
+    ,{
+        "id":17,
+        "subject":"Chemistry",
+        "questionInstruction":"only solve the que talk later about that",
+        "question":"what is a+b",
+        "option1":"5",
+        "option2":"5",
+        "option3":"5",
+        "option4":"5",
+        "submitOption":0,
+        "clearResponse":0
+    }
+    ,{
+        "id":18,
+        "subject":"Chemistry",
+        "questionInstruction":"only solve the que talk later about that",
+        "question":"what is a+b",
+        "option1":"5",
+        "option2":"5",
+        "option3":"5",
+        "option4":"5",
+        "submitOption":0,
+        "clearResponse":0
+    }
+    ,{
+        "id":19,
+        "subject":"Chemistry",
+        "questionInstruction":"only solve the que talk later about that",
+        "question":"what is a+b",
+        "option1":"5",
+        "option2":"5",
+        "option3":"5",
+        "option4":"5",
+        "submitOption":0,
+        "clearResponse":0
+    }
+    ,{
+        "id":20,
+        "subject":"Chemistry",
+        "questionInstruction":"only solve the que talk later about that",
+        "question":"what is a+b",
+        "option1":"5",
+        "option2":"5",
+        "option3":"5",
+        "option4":"5",
+        "submitOption":0,
+        "clearResponse":0
+    }
+
 ]

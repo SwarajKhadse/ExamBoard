@@ -140,3 +140,26 @@ background-color: #A9C9FF;
   margin-left: 3px;
   border-radius: 2px;
 }
+
+.saveButton{
+  background-color: green;
+  color: white;
+  border: none;
+
+  margin: 4px;
+  width: 52px;
+}
+.currButton{
+  background-color: blue;
+  color: white;
+  border: none;
+
+  margin: 4px;
+  width: 52px;
+}
+/* .lastButtons{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: baseline;
+  bottom: 20px;
+} */

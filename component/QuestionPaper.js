@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 
-const QuestionPaper = ({e ,selectedOption,getId}) => {
+const QuestionPaper = ({e ,selectedOption,getId ,finalAns}) => {
  
   const [ans, setAns] = useState();
   const [generateId,setGenerateId]=useState(0)
@@ -52,6 +52,7 @@ getId(generateId)
                         name="option"
                         id="option0"
                         value={e.id}
+                     
                         onChange={e=>{
                           setAns("opt1"),
                           setGenerateId(e.target.value)
@@ -67,6 +68,7 @@ getId(generateId)
                         type="radio"
                         name="option"
                         id="option1"
+                       
                         value={e.id}
                         onChange={e=>{
                           setAns("opt2"),
@@ -82,6 +84,7 @@ getId(generateId)
                         type="radio"
                         name="option"
                         id="option2"
+                        
                         value={e.id}
                         onChange={e=>{
                           setAns("opt3"),
@@ -99,6 +102,7 @@ getId(generateId)
                         name="option"
                         id="option3"
                         value={e.id}
+                        
                         onChange={e=>{
                           setAns("opt4"),
                           setGenerateId(e.target.value)
