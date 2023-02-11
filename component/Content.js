@@ -5,7 +5,7 @@ import QuestionPaper from "./QuestionPaper";
 const getLocalItmes = (low,high) => {
   let list=[] ;
   var temp
-  for(var i=low;i<=high;i++)
+  for(var i=low-1;i<high;i++)
   {
      temp = (localStorage.getItem(i));
     if(temp)
@@ -21,7 +21,7 @@ const getLocalItmes = (low,high) => {
   if (list) {
     var total=[]
     console.log("asjdal")
-    for(var i=low;i<=high;i++)
+    for(var i=low-1;i<high;i++)
     {
       var zp= JSON.parse(localStorage.getItem(i+1));
       if(zp)
@@ -45,8 +45,8 @@ const getLocalItmes = (low,high) => {
 const Content = () => {
 
 
-  const [low , setLow]=useState(0)
-  const [high , setHigh]=useState(29)
+  const [low , setLow]=useState(1)
+  const [high , setHigh]=useState(30)
 
    
 
@@ -76,7 +76,7 @@ const Content = () => {
 
   // console.log(data)
   let [id,setId]=useState(1)
-  let [countAns,setCountAns]=useState()
+  let [countAns,setCountAns]=useState(1)
  
  
   // const arr=new Map()
@@ -129,7 +129,7 @@ const Content = () => {
     console.log("dfsl")
    
 
-    if(id<=high&&id>=low)
+    if(id<high&&id>=low)
     {
       id++;
       setId(id)
@@ -158,7 +158,7 @@ const Content = () => {
     {
         finalAns[i]=disco[i];
     }
-    if(id>=low&&id<=high)
+    if(id>low&&id<=high)
     {
       id--;
       setId(id)
@@ -245,6 +245,7 @@ const Content = () => {
 
           {
             data.map((e)=>{
+             
               if(e.id>=low&&e.id<=high)
               return (
                 // queNumberId
@@ -264,8 +265,8 @@ const Content = () => {
           <div className="queSubPallete">
                 <h5 className="quesNo ms-2 pt-1">Legend (Click To View )</h5>
           </div>
-          <button className="legendData">{countAns} Answer</button>
-          <button className="legendData">{high-countAns} No Answer</button>
+          <button className="legendData">{countAns-1} Answer</button>
+          <button className="legendData">{high-(countAns-1)} No Answer</button>
           <button className="legendData">1 Review + Ans</button>
           <button className="legendData">1 Review + Ans</button>
           <button className="legendData">1 Dump</button>
